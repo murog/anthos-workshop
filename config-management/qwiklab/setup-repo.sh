@@ -12,7 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# set up git 
 export PROJECT=$(gcloud config get-value project)
+export EMAIL=$(gcloud config get-value account)
+git config --global user.email "$EMAIL"
+git config --global user.name "$USER"
 
 # repo 
 cd $HOME
