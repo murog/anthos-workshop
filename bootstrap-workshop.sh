@@ -26,8 +26,8 @@ if [[ $OSTYPE == "linux-gnu" && $CLOUD_SHELL == true ]]; then
     # ./connect-hub/provision-remote-gce.sh &> ${WORK_DIR}/provision-remote.log &
     wait
 
-    kubectx belgium && ./config-management/install-config-operator.sh
-    kubectx taiwan && ./config-management/install-config-operator.sh
+    kubectx belgium && ./config-management/install-config-operator.sh && ./config-management/install-config-sync.sh
+    kubectx taiwan && ./config-management/install-config-operator.sh && ./config-management/install-config-sync.sh
     # kubectx remote && ./config-management/install-config-operator.sh
 
     # ./hybrid-multicluster/istio-install.sh
