@@ -47,10 +47,10 @@ echo "Getting cluster credentials"
 gcloud container clusters get-credentials ${CLUSTER_NAME_1} --zone ${CLUSTER_ZONE_1}
 
 echo "Renaming kubectx context to ${CLUSTER_NAME_1} and switching to context"
-kubectx ${CLUSTER_NAME}=gke_${PROJECT}_${CLUSTER_ZONE_1}_${CLUSTER_NAME_1}
-kubectx ${CLUSTER_NAME}
+kubectx ${CLUSTER_NAME_1}=gke_${PROJECT}_${CLUSTER_ZONE_1}_${CLUSTER_NAME_1}
+kubectx ${CLUSTER_NAME_1}
 
-KUBECONFIG= kubectl config view --minify --flatten --context=$CLUSTER_NAME > $CLUSTER_KUBECONFIG
+KUBECONFIG= kubectl config view --minify --flatten --context=$CLUSTER_NAME_1 > $CLUSTER_KUBECONFIG_1
 
 EXISTING_BINDING=$(kubectl get clusterrolebinding cluster-admin-binding -o json | jq -r '.metadata.name')
 if [ "${EXISTING_BINDING}" == "cluster-admin-binding" ]; then
@@ -88,10 +88,10 @@ echo "Getting cluster credentials"
 gcloud container clusters get-credentials ${CLUSTER_NAME_2} --zone ${CLUSTER_ZONE_2}
 
 echo "Renaming kubectx context to ${CLUSTER_NAME_2} and switching to context"
-kubectx ${CLUSTER_NAME}=gke_${PROJECT}_${CLUSTER_ZONE_2}_${CLUSTER_NAME_2}
-kubectx ${CLUSTER_NAME}
+kubectx ${CLUSTER_NAME_2}=gke_${PROJECT}_${CLUSTER_ZONE_2}_${CLUSTER_NAME_2}
+kubectx ${CLUSTER_NAME_2}
 
-KUBECONFIG= kubectl config view --minify --flatten --context=$CLUSTER_NAME > $CLUSTER_KUBECONFIG_2
+KUBECONFIG= kubectl config view --minify --flatten --context=$CLUSTER_NAME_2 > $CLUSTER_KUBECONFIG_2
 
 EXISTING_BINDING=$(kubectl get clusterrolebinding cluster-admin-binding -o json | jq -r '.metadata.name')
 if [ "${EXISTING_BINDING}" == "cluster-admin-binding" ]; then
