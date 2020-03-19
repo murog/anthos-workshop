@@ -23,7 +23,7 @@
     export CLUSTER_KUBECONFIG_1=$WORK_DIR/$CLUSTER_NAME_2.context
 
     export CLUSTER_NAME_2="taiwan"
-    export CLUSTER_ZONE_2="europe-west1-c"
+    export CLUSTER_ZONE_2="asia-east1-a"
     export CLUSTER_KUBECONFIG_2=$WORK_DIR/$CLUSTER_NAME_2.context
 
     
