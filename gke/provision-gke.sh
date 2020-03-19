@@ -44,7 +44,7 @@ else
 fi
 
 echo "Getting cluster credentials"
-gcloud container clusters get-credentials ${CLUSTER_NAME_1} --zone ${CLUSTER_ZONE}
+gcloud container clusters get-credentials ${CLUSTER_NAME_1} --zone ${CLUSTER_ZONE_1}
 
 echo "Renaming kubectx context to ${CLUSTER_NAME_1} and switching to context"
 kubectx ${CLUSTER_NAME}=gke_${PROJECT}_${CLUSTER_ZONE_1}_${CLUSTER_NAME_1}
