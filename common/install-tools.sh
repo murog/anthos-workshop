@@ -45,6 +45,11 @@ else
 	echo "kubectx installation complete."
 fi
 
+# Install nomos
+gsutil cp gs://config-management-release/released/latest/linux_amd64/nomos nomos
+chmod +x nomos
+mv nomos $WORK_DIR/bin
+
 ## Install Istio
 # if [ -d "$WORK_DIR/istio-$ISTIO_VERSION" ] && [ -x "$(command -v istioctl)" ]; then
 # 	echo "Istio already installed."
